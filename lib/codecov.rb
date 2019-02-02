@@ -222,6 +222,14 @@ class SimpleCov::Formatter::Codecov
       params[:branch] = ENV['HEROKU_TEST_RUN_BRANCH']
       params[:build] = ENV['HEROKU_TEST_RUN_ID']
       params[:commit] = ENV['HEROKU_TEST_RUN_COMMIT_VERSION']
+
+    # GCP Cloud Build
+    # ---------
+    elsif ENV['CLOUD_BUILD'] == 'true'
+      params[:service] = 'cloud_build'
+      params[:branch] = ENV['BRANCH_NAME']
+      params[:build] = ENV['BUILD_ID']
+      params[:commit] = ENV['COMMIT_SHA']
     end
 
     if params[:branch] == nil
