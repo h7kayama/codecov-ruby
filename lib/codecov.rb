@@ -226,7 +226,7 @@ class SimpleCov::Formatter::Codecov
     # GCP Cloud Build
     # ---------
     elsif ENV['CLOUD_BUILD'] == 'true'
-      params[:service] = 'heroku'
+      params[:service] = 'custom'
       params[:branch] = ENV['BRANCH_NAME']
       params[:build] = ENV['BUILD_ID']
       params[:commit] = ENV['COMMIT_SHA']
